@@ -1,0 +1,9 @@
+module.exports=requesthandler;
+
+module.exports={handler:requesthandler,someText:'Printing some text'};
+
+exports.handler=requesthandler;
+exports.someText='Printing some text';
+
+module.exports.handler=requesthandler;
+module.exports.someText='Printing some text';
