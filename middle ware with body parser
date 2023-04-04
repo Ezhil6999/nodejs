@@ -1,0 +1,16 @@
+const express=require('express');
+const app=express();
+const bosyParser=require('body-parser');
+app.use(bosyParser.urlencoded({ extended: true }));
+app.use('/product',(req,res,next)=>{
+        res.send("<html><form action='show-Product' method='POST'><input type=text name=title><input type=submit name=button></form></html>")
+       });
+app.use('/show-Product',(req,res,next)=>{
+        console.log(req.body);
+   
+    }
+);
+
+app.listen(3000,()=>{
+
+});   
