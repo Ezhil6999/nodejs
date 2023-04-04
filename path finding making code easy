@@ -1,0 +1,5 @@
+
+const path=require('path');
+const paths=path.dirname(require.main.filename); //find the main file
+
+module.exports=paths;
