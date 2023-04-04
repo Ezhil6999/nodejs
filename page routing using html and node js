@@ -1,0 +1,100 @@
+index.js
+***********************************************************
+const express=require('express');
+const adminrouter=require('./router/admin')
+const app=express();
+const bosyParser=require('body-parser');
+const shoprouter = require('./router/shop');
+app.use(bosyParser.urlencoded({ extended: true }));
+app.use(adminrouter);
+app.use(shoprouter);
+
+app.listen(3000,()=>{
+
+});
+
+admin.js
+**************************************************************
+const express=require('express');
+const path=require('path');
+
+const router=express.Router();
+router.get('/product',(req,res,next)=>{
+    res.sendFile(path.join(__dirname,"../","view","add-product.html"));});
+router.post('/show-Product',(req,res,next)=>{
+    console.log(req.body);
+    res.send("<h1>hi ezhil</h1>");
+});
+module.exports=router;
+
+add-product.html
+**************************************************************
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+</head>
+<body>
+    <hedder>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">Shop</a>
+                </li>
+                <li>
+                    <a href="/product">Shop</a>
+                </li>
+            </ul>
+        </nav>
+    </hedder>
+    <main>
+        <form action="/show-Product" method="post">
+            <input  type="text" name="title">
+            <button type="submit">Add Product</button>
+        </form>
+    </main>
+</body>
+</html>
+
+shop.js
+*************************************************************
+const express=require('express');
+const path=require('path');
+const shoprouter=express.Router();
+shoprouter.get('/',(req,res)=>{
+ res.sendFile(path.join(__dirname,"../","view","shop.html"));
+});
+module.exports=shoprouter;
+
+shop.html
+**********************************************************
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+</head>
+<body>
+    <hedder>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">Shop</a>
+                </li>
+                <li>
+                    <a href="/product">Product</a>
+                </li>
+            </ul>
+        </nav>
+    </hedder>
+    <main>
+        <h1>Products</h1>
+        <p>List of Product......</p>
+    </main>
+</body>
+</html>
