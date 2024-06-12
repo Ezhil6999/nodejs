@@ -1,0 +1,20 @@
+SIMPLE FILE CREATION
+
+const fs = require('fs');
+fs.writeFileSync('hello.txt','Hello 111 from nade js');
+
+// variable creation
+
+var name = "ezhil"
+var age = 25
+var hasHobby = true;
+console.log(name);
+
+function displayUser(userName, userA){
+    return 1;
+}
+
+const names = ['ezhil','raj','pranesh','elan']
+console.log(names);
+names.map((name)=>console.log(name))
+console.log(names.map(name => "My name is : "+name))
